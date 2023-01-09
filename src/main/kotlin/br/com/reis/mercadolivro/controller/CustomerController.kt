@@ -39,8 +39,8 @@ class CustomerController(
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun getCustomer(@PathVariable id: Int, @RequestBody customer: PostCustomerRequest){
-        customerService.getCustomer(id, customer)
+    fun getCustomer(@PathVariable id: Int, @RequestBody customer: PutCustomerRequest){
+        customerService.update(id, customer.toCustomerModel())
     }
 
     @DeleteMapping("/{id}")
